@@ -6,8 +6,9 @@ export class DemoClassComponent extends Component{
         super(props);
         this.state={
             value:props.prop,
-            array1:["Patiala","Lucknow","Patna"]
+            array1:[]
         }
+        // this.addItem=this.addItem.bind(this.)
     }
     componentDidMount()
     {
@@ -16,9 +17,21 @@ export class DemoClassComponent extends Component{
        {
            console.log("Value is:",this.state.array1[i]);
        }
+    }
+    handleChange=(event)=>{
+        this.setState({value:event.target.value})
+    }
+    addItem=()=>{
+        console.log("Heyy");
+        this.state.array1.push(this.state.value);
+        console.log("Array",this.state.array1);
+        this.setState({array1:[...this.state.array1]})
     }    
     render(){
-        return <h1>Hello{this.state.value}</h1>
+        return (
+    <div>
+</div>
+        )
         
     }
 }
